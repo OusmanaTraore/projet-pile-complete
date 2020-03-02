@@ -1,0 +1,36 @@
+# Installation de git  
+sudo yum  install -y  git
+git --version
+
+# Installation de java 
+sudo yum install java-11-openjdk-devel
+java -version
+
+# Installation de maven
+sudo yum install maven
+mvn -version
+
+ 
+# Installation et configuration de jenkins sur la Master
+    curl -s -LO http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+    mkdir -p /usr/lib/jenkins
+    mv jenkins.war /usr/lib/jenkins/jenkins.war
+    mkdir -p /data/
+    useradd --system -md /data/jenkins jenkins
+    echo -e '[Unit]\nDescription=Jenkins Daemon\nAfter=network.target\n\n[Service]\nType=simple\nEnvironment="JENKINS_HOME=/data/jenkins"\nExecStart=/usr/bin/java -jar /usr/lib/jenkins/jenkins.war\n\n[Install]\nWantedBy=multi-user.target' > /etc/systemd/system/jenkins.service
+    systemctl daemon-reload
+    systemctl start jenkins.service
+    systemctl status jenkins.service
+    systemctl enable jenkins.service
+
+# Installation d'ansible sur la Master
+ 
+	yum install -y epel-release
+	yum install -y python-pip
+	pip install ansible
+	
+# Installation de Terraform 
+wget https://releases.hashicorp.com/terraform/0.12.21/terraform_0.12.21_linux_amd64.zip
+unzip terraform_0.12.21_linux_amd64.zip
+sudo mv terraform  /usr/local/bin
+terraform --version
