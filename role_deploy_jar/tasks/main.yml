@@ -1,0 +1,22 @@
+---
+# tasks file for role_deploy_jar
+- name: get the war
+  get_url:
+  url: git@gitlab.com:RaphaeldeGail/devopsapp.git
+  dest: /tmp
+     
+#- name: 
+
+
+#- name: extract the war
+#  unarchive:
+#      src=/tmp/devopsapp.git
+#      copy=no
+#      dest=/tmp
+  
+#- name: Installing jar file
+#  shell: java -jar  /tmp/devopsapp.git
+   # args:
+ #   creates:  /tmp/apache-tomcat-7.0.56-deployer.tar
+ #   include:  /tmp/apache-tomcat-7.0.56-deployer.tar
+ #  when:  apache-tomcat-7.0.56-deployer.tar.rc != 0

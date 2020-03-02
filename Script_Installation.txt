@@ -49,3 +49,4 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azu
 
 # Installation de Azure Cli
 sudo yum install azure-cli
+sudo yum install yum-utils
