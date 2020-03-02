@@ -34,3 +34,18 @@ wget https://releases.hashicorp.com/terraform/0.12.21/terraform_0.12.21_linux_am
 unzip terraform_0.12.21_linux_amd64.zip
 sudo mv terraform  /usr/local/bin
 terraform --version
+
+#Etape d'Installation de Azure Cli
+# Importattion  la clé de référentiel Microsoft
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+# Création des informations de référentiel azure-cli locales.
+sudo sh -c 'echo -e "[azure-cli]
+name=Azure CLI
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+
+# Installation de Azure Cli
+sudo yum install azure-cli
